@@ -1,4 +1,5 @@
-﻿using Backend.WebApi.Models;
+﻿using Backend.WebApi.Helpers;
+using Backend.WebApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Web.Http;
 
 namespace Backend.WebApi.Controllers
 {
-    [RoutePrefix("products")]
+    [RoutePrefix("api/products")]
     public class ProductsController : ApiController
     {
         private Product[] products =
@@ -23,22 +24,24 @@ namespace Backend.WebApi.Controllers
             new Review { Id = 1, ProductId = 3, Rating = 10, Text = "Banana is my favorite" }
         };
 
-        [Route("products")]
+        [Route("")]
         public IEnumerable<Product> GetAllProducts()
         {
             return products.ToList();
         }
 
-        public IHttpActionResult GetProduct(int id)
+        [Route("{id}")]
+        public Product GetProduct(int id)
         {
             Product result = products.FirstOrDefault(x => x.Id == id);
 
             if (result == null)
-                return NotFound();
+                throw new NotFoundException();
             else
-                return Ok(result);
+                return result;
         }
 
+        [Route("{productId}/reviews")]
         public IEnumerable<Review> GetReviewsForProduct(int productId)
         {
             return reviews.Where(x => x.ProductId == productId);

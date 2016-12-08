@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Backend.WebApi.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
 
 namespace Backend.WebApi
 {
@@ -21,6 +23,10 @@ namespace Backend.WebApi
                 defaults: new { id = RouteParameter.Optional }
             );
             */
+
+            // Exceptions
+
+            config.Services.Replace(typeof(IExceptionHandler), new NotFondHandler());
         }
     }
 }
