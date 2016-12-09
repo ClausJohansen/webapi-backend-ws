@@ -24,9 +24,13 @@ namespace Backend.WebApi
             );
             */
 
-            // Exceptions
+            // Action filters
+            config.Filters.Add(new VersionCheckFilter());
 
+            // Exception handlers
             config.Services.Replace(typeof(IExceptionHandler), new NotFondHandler());
+
+            
         }
     }
 }

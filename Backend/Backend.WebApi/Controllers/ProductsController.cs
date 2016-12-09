@@ -16,12 +16,14 @@ namespace Backend.WebApi.Controllers
         {
             new Product { Id = 1, Name = "Æble", Category="Frugt", Price = 4M },
             new Product { Id = 2, Name = "Pære", Category="Frugt", Price = 4.5M },
-            new Product { Id = 3, Name = "Banan", Category="Frugt", Price = 6M }
+            new Product { Id = 3, Name = "Banan", Category="Frugt", Price = 6M },
+            new Product { Id = 4, Name = "Ford", Category="Biler", Price = 190000M },
         };
     
         private Review[] reviews =
         {
-            new Review { Id = 1, ProductId = 3, Rating = 10, Text = "Banana is my favorite" }
+            new Review { Id = 1, ProductId = 3, Rating = 10, Text = "Banana is my favorite" },
+            new Review { Id = 4, ProductId = 4, Rating = 5, Text = "Hvad sagde Han Solo hos bilforhandleren? \"Har I sår'n Ford?\"" }
         };
 
         [Route("")]

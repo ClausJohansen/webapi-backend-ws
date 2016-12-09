@@ -118,8 +118,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\NotAllowedException.cs" />
+    <Compile Include="Helpers\NotAllowedHandler.cs" />
     <Compile Include="Helpers\NotFondHandler.cs" />
     <Compile Include="Helpers\NotFoundException.cs" />
+    <Compile Include="Helpers\VersionCheckFilter.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,6 +132,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\cfjbackend - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\cfjbackend - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
