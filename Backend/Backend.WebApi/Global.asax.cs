@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Backend.WebApi.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,9 @@ namespace Backend.WebApi
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+
+            var pc = new ProductsController();
+            pc.InitializeSampleData();
         }
     }
 }
